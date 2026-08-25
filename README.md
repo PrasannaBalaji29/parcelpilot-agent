@@ -12,7 +12,7 @@ assessment.
 ## Tech stack
 
 - Backend: Python, Flask, Groq (`openai/gpt-oss-120b`) for tool-calling
-- Document retrieval: ChromaDB (local vector store) + PyMuPDF for PDF text extraction
+- Document retrieval: ChromaDB (local vector store) + pdfplumber for PDF text extraction
 - Structured data: SQLite (loaded from the supplied Excel workbook)
 - Frontend: React + Vite
 
