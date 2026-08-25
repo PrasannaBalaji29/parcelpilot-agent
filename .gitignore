@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.egg-info/
+
+# Env secrets
+.env
+!.env.example
+
+# Data (built at ingest time, not source)
+backend/chroma_store/
+backend/data/parcelpilot.db
+backend/data/actions_log.json
+
+# Node
+node_modules/
+dist/
+frontend/dist/
+
+# OS
+.DS_Store
