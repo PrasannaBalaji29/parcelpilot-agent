@@ -44,9 +44,7 @@ def chunk_text(text: str, chunk_size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
 
 def build_index(reset: bool = True):
     client = chromadb.PersistentClient(path=CHROMA_DIR)
-    embed_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-        model_name="all-MiniLM-L6-v2"
-    )
+    embed_fn = embedding_functions.ONNXMiniLM_L6_V2()
 
     if reset:
         try:

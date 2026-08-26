@@ -14,9 +14,7 @@ def _get_collection():
     global _client, _collection
     if _collection is None:
         _client = chromadb.PersistentClient(path=CHROMA_DIR)
-        embed_fn = embedding_functions.SentenceTransformerEmbeddingFunction(
-            model_name="all-MiniLM-L6-v2"
-        )
+        embed_fn = embedding_functions.ONNXMiniLM_L6_V2()
         _collection = _client.get_collection("parcelpilot_docs", embedding_function=embed_fn)
     return _collection
 
