@@ -51,7 +51,6 @@ cd backend
 python3 -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-pip install sentence-transformers   # embedding model for ChromaDB
 
 cp .env.example .env
 # edit .env and set GROQ_API_KEY=your_key_here
@@ -84,7 +83,7 @@ start chatting.
 ## Deployment
 
 - **Backend:** Render (Web Service). Build command: `pip install -r requirements.txt && python run_ingest.py`.
-  Start command: `gunicorn -w 2 -b 0.0.0.0:$PORT app.main:app`. Set `GROQ_API_KEY` and
+  Start command: `gunicorn -w 1 --timeout 120 -b 0.0.0.0:$PORT app.main:app`. Set `GROQ_API_KEY` and
   `GROQ_MODEL` as environment variables in the Render dashboard.
 - **Frontend:** Vercel. Set `VITE_API_BASE` to the deployed Render backend URL.
 
